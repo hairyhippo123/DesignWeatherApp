@@ -19,7 +19,7 @@ export const BACKGROUND_IMAGES = {
   DEFAULT: "url('/backgrounds/default.jpg')",
 };
 
-export const DEFAULT_LOCATION = "Hà Nội, Việt Nam";
+export const DEFAULT_LOCATION = "New York, USA";
 export const DEFAULT_TEMPERATURE = 27;
 export const DEFAULT_WEATHER_CODE = 1000;
 export const DEFAULT_WEATHER_TYPE = "Clear";

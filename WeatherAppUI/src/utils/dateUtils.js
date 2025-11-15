@@ -5,7 +5,7 @@
  * @returns {string} - Formatted date string
  */
 export const formatDate = (date, options = {}) => {
-  return new Date(date).toLocaleDateString("vi-VN", options);
+  return new Date(date).toLocaleDateString("en-US", options);
 };
 
 /**
@@ -14,8 +14,8 @@ export const formatDate = (date, options = {}) => {
  * @param {object} options - Intl.DateTimeFormat options
  * @returns {string} - Formatted time string
  */
-export const formatTime = (date, options = { hour: "2-digit", minute: "2-digit" }) => {
-  return new Date(date).toLocaleTimeString([], options);
+export const formatTime = (date, options = { hour: "2-digit", minute: "2-digit", hour12: true }) => {
+  return new Date(date).toLocaleTimeString("en-US", options);
 };
 
 /**

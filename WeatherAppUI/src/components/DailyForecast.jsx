@@ -8,15 +8,15 @@ export const DailyForecast = ({ forecastData = [] }) => {
   if (!forecastData || forecastData.length === 0) {
     return (
       <div className="w-full md:w-1/3 bg-black/20 backdrop-blur-md p-8 flex flex-col">
-        <div className="text-white text-xl font-bold mb-6">Dự báo 5 ngày tới</div>
-        <div className="text-gray-400 text-sm">Không có dữ liệu</div>
+        <div className="text-white text-xl font-bold mb-6">5-Day Forecast</div>
+        <div className="text-gray-400 text-sm">No data available</div>
       </div>
     );
   }
 
   return (
     <div className="w-full md:w-1/3 bg-black/20 backdrop-blur-md p-8 flex flex-col">
-      <div className="text-white text-xl font-bold mb-6">Dự báo 5 ngày tới</div>
+      <div className="text-white text-xl font-bold mb-6">5-Day Forecast</div>
       <div className="space-y-6">
         {forecastData.map((day, idx) => (
           <div
@@ -32,7 +32,9 @@ export const DailyForecast = ({ forecastData = [] }) => {
                   month: "long",
                 })}
               </div>
-              <div className="text-xs text-gray-400">{day.day.condition.text}</div>
+              <div className="text-xs text-gray-400">
+                {day.day.condition.text}
+              </div>
             </div>
             <div className="text-right">
               <div className="text-sm">{Math.round(day.day.mintemp_c)}°C</div>
@@ -44,4 +46,3 @@ export const DailyForecast = ({ forecastData = [] }) => {
     </div>
   );
 };
-

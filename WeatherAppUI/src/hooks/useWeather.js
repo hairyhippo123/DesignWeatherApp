@@ -26,7 +26,7 @@ export const useWeather = () => {
    */
   const fetchWeather = useCallback(async (location) => {
     if (!location || !location.trim()) {
-      setError("Vui lòng nhập tên thành phố");
+      setError("Please enter a city name");
       return;
     }
 
@@ -42,7 +42,7 @@ export const useWeather = () => {
       setLocationName(`${data.location.name}, ${data.location.country}`);
       setForecastData(data.forecast.forecastday || []);
     } catch (err) {
-      setError(err.message || "Không thể tải dữ liệu thời tiết. Vui lòng thử lại.");
+      setError(err.message || "Failed to load weather data. Please try again.");
       console.error("Weather fetch error:", err);
     } finally {
       setIsLoading(false);

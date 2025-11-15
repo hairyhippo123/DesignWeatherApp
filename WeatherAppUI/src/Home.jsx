@@ -29,7 +29,7 @@ export default function Home() {
     clearError,
   } = useWeather();
 
-  const { suggestions, clearSuggestions } = useCitySuggestions(searchInput);
+  const { suggestions, isLoading: isLoadingSuggestions, clearSuggestions } = useCitySuggestions(searchInput);
 
   // Load initial weather data on mount
   useEffect(() => {
@@ -44,8 +44,9 @@ export default function Home() {
         return;
       }
       fetchWeather(query);
+      clearSuggestions();
     },
-    [searchInput, fetchWeather]
+    [searchInput, fetchWeather, clearSuggestions]
   );
 
   // Handle suggestion click
@@ -70,13 +71,14 @@ export default function Home() {
         {isLoading && <LoadingSpinner />}
 
         {/* Left Panel */}
-        <div className="flex-1 p-8 flex flex-col justify-between">
-          <div>
+        <div className="flex-1 p-8 flex flex-col justify-between min-w-0">
+          <div className="min-w-0">
             <SearchBar
               searchInput={searchInput}
               onSearchChange={setSearchInput}
               onSearch={handleSearch}
               suggestions={suggestions}
+              isLoadingSuggestions={isLoadingSuggestions}
               onSuggestionClick={handleSuggestionClick}
               onClearSuggestions={clearSuggestions}
             />
@@ -88,7 +90,9 @@ export default function Home() {
             />
           </div>
 
-          <HourlyForecast hourlyData={hourlyData} />
+          <div className="min-w-0">
+            <HourlyForecast hourlyData={hourlyData} />
+          </div>
         </div>
 
         {/* Right Panel – Forecast 5 days */}

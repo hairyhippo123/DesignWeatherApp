@@ -18,7 +18,7 @@ export const WeatherInfo = ({ locationName, temperature, weatherType }) => {
         <div className="text-7xl md:text-8xl text-white font-extrabold">
           {temperature}°C
         </div>
-        <div className="ml-6 text-gray-300 text-sm">Cập nhật tự động</div>
+        <div className="ml-6 text-gray-300 text-sm">Auto update</div>
       </div>
       <div className="text-4xl md:text-5xl text-white font-semibold mt-6">
         {weatherType}
